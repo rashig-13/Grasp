@@ -1,0 +1,35 @@
+<%- include("partials/header") %>
+<div class="ui main text container segment">
+    <div class="ui huge header">New Blog</div>
+    <form class="ui form" action="/secret" method="POST" enctype="multipart/form-data">
+        <div class="field">
+         <label>Title</label>
+         <input type="text" name="title" placeholder="title">
+        </div>
+        <div class="field">
+            <label>Image</label>
+            <input type="file" id="image" name="image" accept="image/*" required>
+           </div>
+           <div class="field">
+           <label>Type</label>
+           <select name="type">
+<option value="art">Art</option>
+<option value="technology">Technology</option>
+<option value="fiction">Fiction</option>
+<option value="sports">Sports</option>
+<option value="culture">Culture</option>
+<option value="fitness">Fitness</option>
+<option value="lifestyle">Lifestyle</option>
+<option value="health">Health</option>
+<option value="travel">Travel</option>
+           </select>
+           </div>
+           <div class="field">
+            <label>Blog Content</label>
+           <textarea name="content"></textarea>
+           </div>
+        <input class="ui violet big inverted button"type="submit">
+    </form>
+</div>
+
+<%- include("partials/footer") %>

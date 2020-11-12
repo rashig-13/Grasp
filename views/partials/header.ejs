@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>blog</title>
+        <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
+        <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
+        <link rel="stylesheet" type="text/css" href="/app.css">
+    </head>
+    <body>
+        <div class="ui fixed inverted menu">
+            <div class="container">
+             <div class="header item"><i class="gofore icon"></i>Grasp Site</div>
+             <a href="/" class="item">Home</a>
+              <div class="right menu">
+                <% if(!currentuser){ %>
+                    <a href="/signup" class="ui item">Sign up</a>
+                  <a href="/login" class="ui item">Login</a>
+                 <% } else{ %>
+                 <a href="#" class="ui item" >Signed In As <%= currentuser.username %></a>
+                 <a href="/blogs/new" class="item">New Post</a>
+                    <a href="/logout" class="ui item">Logout</a>
+                 <% } %>
+             </div>
+             </div>
+     </div><br><br><br>
+        <div class="container">
+            <% if(error && error.length>0){ %>
+            <div class="alert alert-error">
+                <%= error %>
+              </div>
+              <% } %>
+              <% if(success && success.length>0){ %>
+              <div class="alert alert-success">
+                <%= success %>
+              </div>
+              <% } %>
+        </div>
+        
+        
+
+        
+        
+    

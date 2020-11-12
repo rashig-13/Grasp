@@ -1,0 +1,42 @@
+<%- include("partials/header") %>
+<div class="ui main text container segment">
+    <div class="ui huge header"><%= blog.title %></div>
+    <div class="ui top attached">
+        <div class="item">
+            <img class="ui centered rounded image" src="<%= blog.image %>">
+            <div class="content">
+                <span><%= blog.created.toDateString() %></span>
+            </div>
+            <div class="description">
+                <p><%= blog.content%></p>
+            </div>
+            <p>
+                <em>
+                    Submitted by: <strong><a href="/users/<%= blog.author.id %>"><%= blog.author.username %></a></strong>
+                </em>
+            </p>
+            <a class="ui red basic button"href="/blogs/<%= blog._id %>/edit">Edit</a>
+            <form id="delete"action="/blogs/<%= blog._id %>?_method=DELETE" method="POST">
+                <button class="ui red basic button">Delete</button>
+                
+            </form>
+            <a class="ui green basic button"href="/blog/<%= blog._id %>/comments/new">Add comment</a><br>
+            
+            <% blog.comments.forEach(function(comment){ %>
+                <strong><%= comment.author.username %></strong> - <%= comment.text %>
+                <br>
+                <a class="ui violet basic button" href="/blog/<%= blog._id %>/comments/<%=comment._id %>/edit">Edit</a><br>
+                <form id="delete" action="/blog/<%= blog._id %>/comments/<%=comment._id %>?_method=DELETE" method="POST ">
+                    <input type="submit" class="ui violet basic button" value="delete">
+                </form>
+            <% }); %>
+           
+          
+        </div>
+        
+    </div>
+    
+</div>
+
+
+<%- include("partials/footer") %>
